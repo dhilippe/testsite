@@ -1,15 +1,26 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Verrouiller PC</title>
     <script>
         function verrouiller() {
-            fetch("http://192.168.1.37:8000/verrouiller", {
+            // Remplace 'ton-ip-publique' par l'adresse publique ou l'IP de ton serveur
+            fetch("http://192.168.1.37:8000/verrouiller/verrouiller", {
                 method: "GET",
-                mode: "no-cors"
+                headers: {
+                    "Content-Type": "application/json"
+                }
             })
-            .then(() => alert("PC verrouillé !"))
-            .catch(() => alert("Erreur !"));
+            .then(response => {
+                if (response.ok) {
+                    alert("PC verrouillé !");
+                } else {
+                    alert("Erreur lors du verrouillage du PC !");
+                }
+            })
+            .catch(() => alert("Erreur lors de la connexion au serveur !"));
         }
     </script>
 </head>
