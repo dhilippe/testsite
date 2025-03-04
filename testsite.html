@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Verrouiller PC</title>
+    <script>
+        function verrouiller() {
+            fetch("http://TON_IP_PUBLIQUE:8000/verrouiller", {
+                method: "GET",
+                mode: "no-cors"
+            })
+            .then(() => alert("PC verrouillé !"))
+            .catch(() => alert("Erreur !"));
+        }
+    </script>
+</head>
+<body onload="verrouiller()">
+    <h1>Verrouillage en cours...</h1>
+</body>
+</html>
